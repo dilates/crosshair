@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dilates-crosshair-overlay</title>
+  <style>
+    * { margin: 0; padding: 0; user-select: none; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #crosshair {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <img id="crosshair" alt="" />
+  <script>
+    const img = document.getElementById('crosshair');
+    if (window.overlay) {
+      window.overlay.onInit((data) => {
+        img.style.opacity = String(data.opacity);
+        img.style.transform = `rotate(${data.rotation}deg)`;
+        if (data.imageUrl) img.src = data.imageUrl;
+        img.style.filter = `hue-rotate(${data.hue}deg)`;
+        img.onload = () => {
+          img.style.filter = `hue-rotate(${data.hue}deg)`;
+        };
+      });
+    }
+  </script>
+</body>
+</html>
