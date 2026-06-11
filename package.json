@@ -2,8 +2,8 @@
   "name": "dilates-crosshair",
   "productName": "Dilates Crosshair",
   "version": "1.1.1",
-  "description": "Free, open-source crosshair overlay for Linux gaming — a Crosshair X alternative. Sponsored by yeet.gg",
-  "desktopName": "gg.yeet.dilates-crosshair",
+  "description": "Free, open-source crosshair overlay for Linux gaming — a Crosshair X alternative",
+  "desktopName": "io.github.dilates.crosshair",
   "main": "dist/main.js",
   "author": "dilates",
   "homepage": "https://github.com/dilates/crosshair",
@@ -27,7 +27,7 @@
   },
   "dependencies": {},
   "build": {
-    "appId": "gg.yeet.dilates-crosshair",
+    "appId": "io.github.dilates.crosshair",
     "productName": "Dilates Crosshair",
     "files": ["dist", "public", "package.json"],
     "linux": {

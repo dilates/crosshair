@@ -462,6 +462,7 @@ input.hue-range {
   background: var(--bg-panel);
   font-size: 0.82rem;
 }
+.footer-note { color: var(--text-muted); }
 .footer a { color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
 .footer a:hover { color: var(--accent); }
 .footer-right { display: flex; align-items: center; gap: 16px; }

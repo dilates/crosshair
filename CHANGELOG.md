@@ -2,6 +2,9 @@
 
 ## 1.1.1 — 2026-06-10
 
+### Changed
+- Removed sponsor branding. App ID renamed to `io.github.dilates.crosshair` (Flatpak manifest renamed accordingly); the splash and footer now link to the GitHub repo instead.
+
 ### Fixed
 - **Hyprland: dark box around the crosshair.** Hyprland decorates floating windows with background blur, shadow, rounding, and borders, which drew a frosted dark square behind the overlay. The app now auto-registers a Hyprland window rule for the overlay (supports both the Lua config in 0.55+ via `hyprctl eval` and older conf-based versions via `hyprctl keyword`). The rule also pins the overlay so it stays across workspace switches.
 - Transparent overlay hardening: explicit transparent background color and `enable-transparent-visuals` for GNOME/Xorg setups.
