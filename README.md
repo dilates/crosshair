@@ -10,8 +10,6 @@
 [![Platform: Linux](https://img.shields.io/badge/Platform-Linux-FCC624?logo=linux&logoColor=black)](#requirements)
 [![Built with Electron](https://img.shields.io/badge/Built%20with-Electron-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 
-*Sponsored by [yeet.gg](https://yeet.gg)*
-
 <img src="docs/screenshot.png" width="720" alt="Dilates Crosshair main window — crosshair gallery, live preview, style sliders, and multi-monitor picker" />
 
 </div>
@@ -76,7 +74,7 @@ npm run appimage   # → dist/Dilates Crosshair-<version>.AppImage
 npm run flatpak    # → flatpak bundle
 ```
 
-A Flathub-style manifest is included as `gg.yeet.DilatesCrosshair.yml` — see the comments inside it for `flatpak-builder` instructions.
+A Flathub-style manifest is included as `io.github.dilates.crosshair.yml` — see the comments inside it for `flatpak-builder` instructions.
 
 ## Usage
 
@@ -119,7 +117,7 @@ Issues and pull requests are welcome at [github.com/dilates/crosshair](https://g
 
 ## Support the project
 
-Dilates Crosshair is free forever. It's sponsored by [yeet.gg](https://yeet.gg) — crypto swaps with low fees and no KYC. Using it supports development. You can also hang out with us on [Discord](https://discord.gg/cheese).
+Dilates Crosshair is free forever. If you like it, star the repo and share it — and come hang out with us on [Discord](https://discord.gg/cheese).
 
 ## License
 

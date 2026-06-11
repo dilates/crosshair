@@ -22,7 +22,6 @@
   const posY = $('pos-y');
   const pixelInputs = $('pixel-inputs');
   const setFromCursor = $('set-from-cursor');
-  const yeetLink = $('yeet-link');
   const githubLink = $('github-link');
   const discordLink = $('discord-link');
 
@@ -237,7 +236,6 @@
     e.preventDefault();
     window.dilates.openExternal(url);
   });
-  ext(yeetLink, 'https://yeet.gg');
   ext(githubLink, 'https://github.com/dilates/crosshair');
   ext(discordLink, 'https://discord.gg/cheese');
 

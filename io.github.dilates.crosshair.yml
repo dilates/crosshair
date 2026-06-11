@@ -1,10 +1,10 @@
 # Flathub manifest for Dilates Crosshair
 # 1. Generate npm sources: flatpak-node-generator npm package-lock.json -o generated-sources.json
 #    (and add "- generated-sources.json" under sources of the app module if using locked deps)
-# 2. Build: flatpak-builder build gg.yeet.DilatesCrosshair.yml --install-deps-from=flathub --force-clean --user --install
-# 3. Run: flatpak run gg.yeet.dilates-crosshair
+# 2. Build: flatpak-builder build io.github.dilates.crosshair.yml --install-deps-from=flathub --force-clean --user --install
+# 3. Run: flatpak run io.github.dilates.crosshair
 
-app-id: gg.yeet.dilates-crosshair
+app-id: io.github.dilates.crosshair
 runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
