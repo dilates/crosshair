@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dilates Crosshair</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background:
+        radial-gradient(600px 300px at 50% -10%, rgba(108, 140, 255, 0.12), transparent 65%),
+        #0b0b10;
+      color: #e8e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mark {
+      width: 56px;
+      height: 56px;
+      color: #6c8cff;
+      filter: drop-shadow(0 0 14px rgba(108, 140, 255, 0.55));
+      margin-bottom: 16px;
+      animation: spin-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    @keyframes spin-in {
+      from { transform: rotate(-90deg) scale(0.6); opacity: 0; }
+      to   { transform: rotate(0) scale(1); opacity: 1; }
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #fff;
+    }
+    .tagline {
+      font-size: 0.85rem;
+      color: #8a8aa3;
+      margin: 4px 0 22px;
+    }
+    .support-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      max-width: 380px;
+    }
+    .support-box p {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: #b0b0bc;
+    }
+    .support-box a {
+      color: #87a2ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .support-box a:hover { text-decoration: underline; }
+    .cta {
+      background: linear-gradient(135deg, #5474f5 0%, #6c8cff 100%);
+      color: #fff;
+      border: none;
+      padding: 13px 36px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: inherit;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.2s;
+    }
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(108, 140, 255, 0.4);
+    }
+    .cta:active { transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+    <line x1="16" y1="3" x2="16" y2="11"/>
+    <line x1="16" y1="21" x2="16" y2="29"/>
+    <line x1="3" y1="16" x2="11" y2="16"/>
+    <line x1="21" y1="16" x2="29" y2="16"/>
+    <circle cx="16" cy="16" r="1.75" fill="currentColor" stroke="none"/>
+  </svg>
+  <div class="logo">Dilates Crosshair</div>
+  <div class="tagline">Free crosshair overlay for Linux gaming</div>
+  <div class="support-box">
+    <p>Support the dev and use <a href="#" id="yeet-link">yeet.gg</a> for crypto swaps — low fees, no KYC.</p>
+  </div>
+  <button class="cta" id="open-app">Launch</button>
+  <script>
+    document.getElementById('yeet-link').addEventListener('click', (e) => {
+      e.preventDefault();
+      if (window.splash) window.splash.openExternal('https://yeet.gg');
+    });
+    document.getElementById('open-app').addEventListener('click', () => {
+      if (window.splash) window.splash.openApp();
+    });
+  </script>
+</body>
+</html>

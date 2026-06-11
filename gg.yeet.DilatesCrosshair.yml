@@ -1,0 +1,54 @@
+# Flathub manifest for Dilates Crosshair
+# 1. Generate npm sources: flatpak-node-generator npm package-lock.json -o generated-sources.json
+#    (and add "- generated-sources.json" under sources of the app module if using locked deps)
+# 2. Build: flatpak-builder build gg.yeet.DilatesCrosshair.yml --install-deps-from=flathub --force-clean --user --install
+# 3. Run: flatpak run gg.yeet.dilates-crosshair
+
+app-id: gg.yeet.dilates-crosshair
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: '24.08'
+
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node20
+
+build-options:
+  append-path: /usr/lib/sdk/node20/bin
+  cflags: -O2
+  cxxflags: -O2
+  env:
+    NPM_CONFIG_LOGLEVEL: info
+
+command: run.sh
+
+finish-args:
+  - --share=ipc
+  - --device=dri
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --share=network
+  - --filesystem=home
+  - --env=ELECTRON_TRASH=gio
+
+modules:
+  - name: dilates-crosshair
+    buildsystem: simple
+    build-options:
+      env:
+        XDG_CACHE_HOME: /run/build/dilates-crosshair/flatpak-node/cache
+        npm_config_cache: /run/build/dilates-crosshair/flatpak-node/npm-cache
+        npm_config_nodedir: /usr/lib/sdk/node20
+    build-commands:
+      - npm install
+      - npm run build
+      - npx electron-builder --linux --dir
+      - cp -a dist/linux-unpacked/* /app/
+      - printf '#!/bin/sh\nexec zypak-wrapper /app/dilates-crosshair "$@"\n' > run.sh
+      - chmod +x run.sh
+      - install -Dm755 run.sh /app/bin/run.sh
+    sources:
+      - type: dir
+        path: .
