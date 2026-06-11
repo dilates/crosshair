@@ -97,7 +97,7 @@ Comment=Free crosshair overlay for Linux gaming
 Exec=${EXEC_CMD}
 Icon=${BIN_NAME}
 Terminal=false
-Categories=Utility;Game;
+Categories=Game;
 Keywords=crosshair;overlay;gaming;aim;fps;
 EOF
 ok "Desktop entry installed"
