@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.2.0 — 2026-09-29
+
+### Added
+- **Solid color fill** — recolor *any* crosshair (built-in SVG or custom PNG) to any color. Fixes the old hue slider silently doing nothing on white built-in crosshairs (hue-rotate is a no-op on white); hue-rotate remains available for multi-color custom images when solid fill is off.
+- **Outline & glow effects** — add a hard dark/bright outline (1–5 px, any color) and a soft glow behind the crosshair so it stays visible on bright scenes.
+- **Profiles** — save your full style + crosshair setup under a name (one per game) and switch instantly from the app.
+- **Overlay hotkey** — press the configurable hotkey (default `Ctrl+Shift+X`) anywhere, even in-game, to show/hide the crosshair. Invalid or taken accelerators fall back safely with inline feedback.
+- **Position nudging** — `Ctrl+Shift+Arrow keys` move the crosshair 5 px at a time and automatically switch to custom positioning.
+- **System tray icon** — show/hide the overlay, open settings, and quit from the tray; closing the window now keeps the app running in the tray (disable in General settings).
+- **Remembers overlay state** — if the overlay was on when you closed the app, it comes back on the next launch.
+- **Show on all displays** — mirror the crosshair on every connected monitor at once.
+- **Single-instance lock** — launching the app twice focuses the existing window instead of spawning a second overlay.
+- **Reset style & position** and **Random crosshair** buttons.
+- **sway/wlroots window rules** — the overlay now also floats, undecorates and pins itself on sway (previously Hyprland only).
+- **6 new built-in crosshairs** (28 total): circle-plus, x-dot, quad-dot, half-cross, dot-ring, cross-thick.
+
+### Changed
+- Electron 28 → 44, electron-builder 24 → 26, TypeScript 5.3 → 5.9.
+- Overlay and settings preview now share one styling implementation (`public/cross-style.js`), so what you see in the preview is exactly what renders in-game.
+
 ## 1.1.1 — 2026-06-10
 
 ### Changed

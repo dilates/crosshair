@@ -37,6 +37,7 @@
           <h2>Preview</h2>
           <div class="preview-stage">
             <img id="preview-img" alt="Crosshair preview" />
+            <div id="preview-solid" class="hidden"></div>
           </div>
         </section>
 
@@ -58,6 +59,35 @@
             <div class="slider-head"><label for="opacity">Opacity</label><output id="opacity-val">100%</output></div>
             <input type="range" id="opacity" min="5" max="100" value="100" />
           </div>
+          <div class="slider-group effect-group">
+            <label class="check-row"><input type="checkbox" id="fill-toggle" /> <span>Solid color</span></label>
+            <input type="color" id="fill-color" value="#00ff66" class="hidden" />
+          </div>
+          <div class="slider-group effect-group">
+            <label class="check-row"><input type="checkbox" id="outline-toggle" /> <span>Outline</span></label>
+            <div class="effect-row hidden" id="outline-controls">
+              <input type="range" id="outline-width" min="1" max="5" value="2" title="Outline thickness" />
+              <input type="color" id="outline-color" value="#000000" title="Outline color" />
+            </div>
+          </div>
+          <div class="slider-group effect-group">
+            <label class="check-row"><input type="checkbox" id="glow-toggle" /> <span>Glow</span></label>
+            <input type="color" id="glow-color" value="#6c8cff" class="hidden" title="Glow color" />
+          </div>
+        </section>
+
+        <section class="panel profiles-panel">
+          <h2>Profiles</h2>
+          <p class="hint">Save your setup per game and switch instantly.</p>
+          <div class="profile-row">
+            <select id="profile-select" class="text-input" title="Load profile"></select>
+            <button type="button" id="profile-delete" class="btn secondary" title="Delete selected profile">Delete</button>
+          </div>
+          <div class="profile-row">
+            <input type="text" id="profile-name" class="text-input" placeholder="New profile name…" maxlength="40" />
+            <button type="button" id="profile-save" class="btn secondary">Save current</button>
+          </div>
+          <p id="profile-msg" class="hint profile-msg"></p>
         </section>
       </div>
 
@@ -101,6 +131,24 @@
             <p class="hint">Offsets are relative to the selected display. Tip: press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> anywhere to snap to your mouse.</p>
           </div>
         </section>
+
+        <section class="panel general-panel">
+          <h2>General</h2>
+          <div class="check-stack">
+            <label class="check-row"><input type="checkbox" id="all-displays-toggle" /> <span>Show on all displays</span></label>
+            <label class="check-row"><input type="checkbox" id="tray-toggle" /> <span>Tray icon</span></label>
+            <label class="check-row"><input type="checkbox" id="remember-toggle" disabled /> <span>Remember overlay state</span></label>
+          </div>
+          <div class="hotkey-row">
+            <label for="toggle-hotkey">Overlay hotkey</label>
+            <input type="text" id="toggle-hotkey" class="text-input" placeholder="CommandOrControl+Shift+X" spellcheck="false" />
+          </div>
+          <p class="hint">Press the hotkey in-game to show/hide the crosshair. Nudge with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Arrows</kbd>, snap with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.</p>
+          <div class="btn-row">
+            <button type="button" id="random-btn" class="btn secondary">Random crosshair</button>
+            <button type="button" id="reset-btn" class="btn secondary">Reset style &amp; position</button>
+          </div>
+        </section>
       </div>
     </main>
 
@@ -112,6 +160,7 @@
       </div>
     </footer>
   </div>
+  <script src="cross-style.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

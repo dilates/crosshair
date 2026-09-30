@@ -178,6 +178,16 @@ input:checked + .slider::before { transform: translateX(22px); background: #fff;
   object-fit: contain;
   transition: width 0.1s, height 0.1s;
 }
+#preview-solid {
+  width: 48px;
+  height: 48px;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
 
 /* ---------- Sliders ---------- */
 .slider-group { margin-bottom: 14px; }
@@ -424,6 +434,73 @@ input.hue-range {
   outline: none;
   border-color: var(--accent);
 }
+
+/* ---------- Effects, profiles & general panels ---------- */
+.effect-group { display: flex; flex-direction: column; gap: 8px; }
+.effect-row { display: flex; align-items: center; gap: 10px; }
+.effect-row input[type="range"] { flex: 1; }
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+}
+.check-row input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.check-row input[type="checkbox"]:disabled { cursor: default; }
+.check-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 12px;
+}
+
+input[type="color"] {
+  width: 36px;
+  height: 26px;
+  padding: 2px;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+input[type="color"]:hover { border-color: var(--border-strong); }
+
+.text-input {
+  padding: 7px 10px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  min-width: 0;
+}
+.text-input:focus { outline: none; border-color: var(--accent); }
+select.text-input { cursor: pointer; }
+
+.profile-row { display: flex; gap: 8px; margin-bottom: 8px; }
+.profile-row .text-input { flex: 1; }
+.profile-msg { min-height: 1.1em; margin-bottom: 0; color: var(--text-muted); }
+.profile-msg.error { color: #ff7a7a; }
+
+.hotkey-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.hotkey-row label { font-size: 0.85rem; }
+.hotkey-row .text-input.invalid { border-color: #ff7a7a; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* ---------- Buttons & footer ---------- */
 .btn {

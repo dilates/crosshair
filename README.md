@@ -20,13 +20,15 @@
 
 Crosshair X is great — but it's paid and Windows-only. Dilates Crosshair gives Linux gamers the same thing for free: a clean, always-on-top crosshair overlay that works in any game, with zero game-file modification and zero cost.
 
-- 🎯 **22 built-in crosshairs** — dots, crosses, circles, chevrons, scopes, brackets, and more
+- 🎯 **28 built-in crosshairs** — dots, crosses, circles, chevrons, scopes, brackets, and more
 - 🖼️ **Custom crosshairs** — point it at any folder of PNG/SVG images and use your own
-- 🖥️ **Multi-monitor aware** — automatically detects all your displays; pick which screen the crosshair appears on with one click, perfectly centered
-- 🎨 **Full styling** — size, color hue, rotation, and opacity sliders with a live preview
+- 🖥️ **Multi-monitor aware** — automatically detects all your displays; pick which screen the crosshair appears on with one click, perfectly centered — or mirror it on every display
+- 🎨 **Full styling** — size, color (solid fill or hue rotation), outline, glow, rotation, and opacity sliders with a live preview
 - 📍 **Flexible positioning** — screen center, exact pixel offset, or follow your cursor
-- ⌨️ **Hotkey placement** — press `Ctrl+Shift+P` to snap the crosshair to your mouse position
-- 💾 **Remembers your setup** — settings persist between launches
+- ⌨️ **Hotkeys** — `Ctrl+Shift+X` toggles the overlay in-game, `Ctrl+Shift+P` snaps the crosshair to your mouse, `Ctrl+Shift+Arrows` nudge it pixel by pixel
+- 👤 **Profiles** — save a setup per game and switch between them instantly
+- 🫥 **System tray** — toggle the overlay and quit from the tray; closing the window keeps it running
+- 💾 **Remembers your setup** — settings *and* overlay state persist between launches
 - 🖱️ **Click-through overlay** — never blocks your mouse, never steals focus
 
 ## Requirements
@@ -34,7 +36,7 @@ Crosshair X is great — but it's paid and Windows-only. Dilates Crosshair gives
 - Linux (X11, or Wayland via XWayland)
 - Node.js 18+ and npm (for installing from source)
 
-> **Compositor support:** works out of the box on GNOME, KDE, and Hyprland. On Hyprland the app automatically registers a window rule for the overlay (no blur, no shadow, no border, no rounding) so the crosshair renders clean — both the new Lua config (0.55+) and older conf-based versions are handled. On other tiling compositors you may need a similar rule to keep the overlay floating and undecorated.
+> **Compositor support:** works out of the box on GNOME, KDE, Hyprland, and sway. On Hyprland the app automatically registers a window rule for the overlay (no blur, no shadow, no border, no rounding) so the crosshair renders clean — both the new Lua config (0.55+) and older conf-based versions are handled. sway gets an equivalent `for_window` rule. On other tiling compositors you may need a similar rule to keep the overlay floating and undecorated.
 
 ## Installation
 
@@ -86,13 +88,15 @@ A Flathub-style manifest is included as `io.github.dilates.crosshair.yml` — se
    - **Center** — dead center of the selected display (the default; right where it should be)
    - **Custom** — exact X/Y pixel offset within the selected display, or press `Ctrl+Shift+P` with your mouse anywhere on screen to snap it there
    - **Follow cursor** — the crosshair rides your mouse
-6. **Flip the Overlay switch** in the top-right corner. Game on. 🎮
+6. **Flip the Overlay switch** in the top-right corner — or just press `Ctrl+Shift+X`, even in-game. Game on. 🎮
 
-The overlay is click-through and stays on top of fullscreen games. All your settings are saved automatically and restored next launch.
+The overlay is click-through and stays on top of fullscreen games. All your settings are saved automatically and restored next launch — including whether the overlay was on. Save the whole look as a **profile** (one per game) and switch anytime.
 
 | Shortcut | Action |
 |---|---|
-| `Ctrl+Shift+P` | Snap crosshair position to current mouse location (global) |
+| `Ctrl+Shift+X` | Show/hide the overlay (configurable in **General**) |
+| `Ctrl+Shift+P` | Snap crosshair position to current mouse location |
+| `Ctrl+Shift+Arrows` | Nudge crosshair position by 5 px (switches to custom positioning) |
 
 ## Adding your own crosshairs
 
@@ -105,6 +109,7 @@ Want to contribute a design to the built-in set? PRs welcome — add a 32×32 vi
 ```
 ├── src/                 # Electron main process + preload scripts (TypeScript)
 ├── public/              # UI (HTML/CSS/JS), overlay, splash, crosshair SVGs
+│   ├── cross-style.js   # Shared preview/overlay styling (fill, outline, glow)
 │   └── crosshairs/      # Built-in crosshair pack
 ├── assets/              # App icon for packaging
 ├── install.sh           # One-step installer
