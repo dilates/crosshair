@@ -127,4 +127,3 @@ Dilates Crosshair is free forever. If you like it, star the repo and share it â€
 ## License
 
 [MIT](LICENSE) Â© [dilates](https://github.com/dilates)
- 
